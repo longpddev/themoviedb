@@ -45,23 +45,42 @@ Here's a walkthrough of implemented user stories:
 
 ## Submit
 
-**When you're done, send us back a link to a repository with your source code, with a description of what you've done and any build instructions in the readme!**
+### ✅ **Core Features Implemented:**
+- **Movie Listings**: Now Playing and Top Rated movies with tab navigation
+- **Search Functionality**: Movie search with responsive results
+- **Movie Details**: Comprehensive detail pages with poster images and movie information
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Loading States**: Skeleton loading animations for better UX
+- **Error Handling**: Network error states with user-friendly messages
 
+### ✅ **Enhanced User Experience:**
+- **View Toggle**: Segmented control to switch between list and grid layouts
+- **Lazy Loading**: Optimized image loading for better performance
+- **Interactive Elements**: Custom hover animations and cell selection effects
+- **Sticky Navigation**: Fixed header for seamless browsing
+- **Modern UI**: Clean, intuitive interface following best UX practices
 
-> You can use this file as the readme (please update what you've done, build instructions).
+### 🛠 **Technical Implementation:**
+- **React 19** with TypeScript for type safety
+- **React Query** for efficient API state management
+- **React Router 7** for navigation
+- **Vite** for fast development and optimized builds
+- **SCSS** for modular styling (no external CSS frameworks)
+- **The Movie Database API** integration
 
-## License
+### 🚀 **Build Instructions:**
+```bash
+# Install dependencies
+yarn install
 
-    Copyright [2016] [your-name]
+# Start development server
+yarn dev
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+# Build for production
+yarn build
 
-        http://www.apache.org/licenses/LICENSE-2.0
+# Preview production build
+yarn preview
+```
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+The application runs on `http://localhost:5173` in development mode.
