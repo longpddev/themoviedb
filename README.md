@@ -27,14 +27,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] TypeScript interfaces for type safety
-- [x] SCSS design system with variables and mixins
-- [x] Modal-based movie details view
 - [x] Sticky header navigation
-- [x] Mobile-first responsive design
 - [x] Hover animations and transitions
-- [ ] Error handling with retry functionality
-- [x] Clean component architecture
 
 ## Requirements
 
