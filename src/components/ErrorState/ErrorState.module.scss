@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins';
+@use "sass:color";
+
+.errorState {
+  @include mixins.flex-center;
+  flex-direction: column;
+  padding: $spacing-xxl;
+  text-align: center;
+  gap: $spacing-md;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: $spacing-md;
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+}
+
+.errorMessage {
+  color: $text-secondary;
+  margin: 0;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.retryButton {
+  @include mixins.button-reset;
+  background: $accent-color;
+  color: white;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background:color.adjust($accent-color, $lightness: -10%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}

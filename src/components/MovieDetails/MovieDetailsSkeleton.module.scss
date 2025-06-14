@@ -1,0 +1,340 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Shimmer animation
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+// Base skeleton mixin
+@mixin skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+// Dark skeleton for hero section
+@mixin skeletonDark {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.movieDetailsPage {
+  min-height: 100vh;
+  background: $secondary-color;
+}
+
+// Hero Section
+.hero {
+  position: relative;
+  min-height: 60vh;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 26, 26, 0.9) 0%,
+    rgba(26, 26, 26, 0.7) 50%,
+    rgba(26, 26, 26, 0.3) 100%
+  );
+
+  @include mobile {
+    position: static;
+  }
+  @include tablet {
+    position: static;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: $large-desktop;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+  width: 100%;
+}
+
+.backButtonSkeleton {
+  @include skeletonDark;
+  width: 80px;
+  height: 36px;
+  margin-bottom: $spacing-lg;
+}
+
+.movieInfo {
+  display: flex;
+  gap: $spacing-xl;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+    gap: $spacing-lg;
+    text-align: center;
+  }
+}
+
+.posterSkeleton {
+  @include skeletonDark;
+  flex-shrink: 0;
+  width: 300px;
+  height: 450px;
+  border-radius: $border-radius-md;
+
+  @include tablet {
+    width: 250px;
+    height: 375px;
+    margin: 0 auto;
+  }
+}
+
+.mainInfo {
+  flex: 1;
+
+  @include tablet {
+    text-align: center;
+  }
+}
+
+.titleSkeleton {
+  @include skeletonDark;
+  height: 40px;
+  width: 70%;
+  margin-bottom: $spacing-sm;
+
+  @include mobile {
+    height: 32px;
+  }
+
+  @include tablet {
+    margin: 0 auto $spacing-sm auto;
+  }
+}
+
+.titleSkeletonSmall {
+  @include skeletonDark;
+  height: 24px;
+  width: 30%;
+  margin-bottom: $spacing-md;
+
+  @include tablet {
+    margin: 0 auto $spacing-md auto;
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  @include tablet {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.ratingSkeleton {
+  @include skeletonDark;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.votesSkeleton {
+  @include skeletonDark;
+  width: 80px;
+  height: 16px;
+}
+
+.runtimeSkeleton {
+  @include skeletonDark;
+  width: 60px;
+  height: 16px;
+}
+
+.taglineSkeleton {
+  @include skeletonDark;
+  height: 20px;
+  width: 60%;
+  margin-bottom: $spacing-lg;
+
+  @include tablet {
+    margin: 0 auto $spacing-lg auto;
+  }
+}
+
+.overview {
+  margin-bottom: $spacing-lg;
+}
+
+.overviewTitleSkeleton {
+  @include skeletonDark;
+  height: 20px;
+  width: 80px;
+  margin-bottom: $spacing-sm;
+
+  @include tablet {
+    margin: 0 auto $spacing-sm auto;
+  }
+}
+
+.overviewTextSkeleton {
+  @include skeletonDark;
+  height: 16px;
+  width: 100%;
+  margin-bottom: $spacing-xs;
+
+  @include tablet {
+    margin: 0 auto $spacing-xs auto;
+  }
+}
+
+.overviewTextSkeletonShort {
+  @include skeletonDark;
+  height: 16px;
+  width: 75%;
+
+  @include tablet {
+    margin: 0 auto;
+  }
+}
+
+.genres {
+  margin-bottom: $spacing-lg;
+}
+
+.genresTitleSkeleton {
+  @include skeletonDark;
+  height: 20px;
+  width: 60px;
+  margin-bottom: $spacing-sm;
+
+  @include tablet {
+    margin: 0 auto $spacing-sm auto;
+  }
+}
+
+.genreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+
+  @include tablet {
+    justify-content: center;
+  }
+}
+
+.genreSkeleton {
+  @include skeletonDark;
+  height: 28px;
+  width: 80px;
+  border-radius: $border-radius-sm;
+}
+
+// Content Section
+.content {
+  max-width: $large-desktop;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+
+  @include mobile {
+    padding: $spacing-lg $spacing-md;
+  }
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.section {
+  background: white;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+}
+
+.sectionTitleSkeleton {
+  @include skeleton;
+  height: 24px;
+  width: 120px;
+  margin-bottom: $spacing-lg;
+}
+
+// Info Cards Section
+.infoCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-sm;
+  }
+}
+
+.infoCard {
+  background: white;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+}
+
+.infoCardTitleSkeleton {
+  @include skeleton;
+  height: 16px;
+  width: 60%;
+  margin-bottom: $spacing-sm;
+}
+
+.infoCardTextSkeleton {
+  @include skeleton;
+  height: 14px;
+  width: 80%;
+}
+
+// Production Section
+.productionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.productionCompany {
+  background: $secondary-color;
+  border-radius: $border-radius-sm;
+  padding: $spacing-md;
+  min-width: 200px;
+}
+
+.companyNameSkeleton {
+  @include skeleton;
+  height: 14px;
+  width: 70%;
+  margin-bottom: $spacing-xs;
+}
+
+.companyCountrySkeleton {
+  @include skeleton;
+  height: 12px;
+  width: 40%;
+}

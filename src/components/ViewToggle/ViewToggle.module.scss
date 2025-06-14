@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins';
+
+.viewToggle {
+  display: flex;
+  gap: $spacing-xs;
+  background: $secondary-color;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs;
+}
+
+.toggleButton {
+  @include mixins.button-reset;
+  @include mixins.flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-sm;
+  color: $text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: white;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $accent-color;
+    color: white;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,42 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+.app {
+  min-height: 100vh;
+  background: $secondary-color;
+}
+
+.controls {
+  background: white;
+  border-bottom: 1px solid $border-color;
+  padding: $spacing-md 0;
+}
+
+.container {
+  max-width: $large-desktop;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  @include flex-between;
+  gap: $spacing-lg;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+
+  @include mobile {
+    font-size: 1.25rem;
+  }
+}
+
+.main {
+  min-height: 60vh;
+}

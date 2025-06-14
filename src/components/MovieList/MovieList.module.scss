@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins';
+
+.movieList {
+  padding: $spacing-lg;
+  max-width: $large-desktop;
+  margin: 0 auto;
+
+  &.grid {
+    display: grid;
+    gap: $spacing-lg;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    @include mixins.mobile {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: $spacing-md;
+      padding: $spacing-md;
+    }
+
+    @include mixins.tablet {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+
+  &.list {
+    display: grid;
+    gap: $spacing-md;
+    margin: 0 auto;
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    
+    @include mixins.desktop {
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+      padding: $spacing-md;
+    }
+  }
+}
+
+.emptyState {
+  @include mixins.flex-center;
+  padding: $spacing-xxl;
+  color: $text-secondary;
+  font-size: 1.125rem;
+}

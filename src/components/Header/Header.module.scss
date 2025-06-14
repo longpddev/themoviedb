@@ -1,0 +1,88 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins';
+@use "sass:color";
+
+.header {
+  background: white;
+  border-bottom: 1px solid $border-color;
+  padding: $spacing-md 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: $large-desktop;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  @include mixins.flex-between;
+  gap: $spacing-lg;
+
+  @include mixins.mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $primary-color;
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @include mixins.mobile {
+    font-size: 1.5rem;
+  }
+}
+
+.searchForm {
+  display: flex;
+  gap: $spacing-sm;
+  flex: 1;
+  max-width: 400px;
+
+  @include mixins.mobile {
+    max-width: 100%;
+  }
+}
+
+.searchInput {
+  flex: 1;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  font-size: 1rem;
+  transition: border-color $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $accent-color;
+  }
+
+  &::placeholder {
+    color: $text-light;
+  }
+}
+
+.searchButton {
+  @include mixins.button-reset;
+  background: $accent-color;
+  color: white;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background: color.adjust($accent-color, $lightness: -10%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}

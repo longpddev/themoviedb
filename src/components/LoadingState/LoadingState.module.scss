@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins';
+
+.loadingState {
+  padding: $spacing-lg;
+  max-width: $large-desktop;
+  margin: 0 auto;
+
+  &.grid {
+    display: grid;
+    gap: $spacing-lg;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    @include mixins.mobile {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: $spacing-md;
+      padding: $spacing-md;
+    }
+  }
+
+  &.list {
+    display: grid;
+    gap: $spacing-md;
+    margin: 0 auto;
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    
+    @include mixins.desktop {
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+      padding: $spacing-md;
+    }
+  }
+}
+
+.skeleton {
+  background: white;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+
+  &.list {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-md;
+
+    @include mixins.mobile {
+      flex-direction: column;
+    }
+  }
+
+  &.grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skeletonPoster {
+  @include mixins.skeleton;
+  flex-shrink: 0;
+
+  .list & {
+    width: 120px;
+    height: 180px;
+    border-radius: $border-radius-sm;
+
+    @include mixins.mobile {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  .grid & {
+    width: 100%;
+    aspect-ratio: 2/3;
+  }
+}
+
+.skeletonContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .grid & {
+    padding: $spacing-md;
+  }
+}
+
+.skeletonTitle {
+  @include mixins.skeleton;
+  height: 20px;
+  border-radius: $border-radius-sm;
+  width: 80%;
+}
+
+.skeletonYear {
+  @include mixins.skeleton;
+  height: 16px;
+  border-radius: $border-radius-sm;
+  width: 40%;
+}
+
+.skeletonOverview {
+  @include mixins.skeleton;
+  height: 14px;
+  border-radius: $border-radius-sm;
+  width: 100%;
+
+  &:last-child {
+    width: 60%;
+  }
+}
